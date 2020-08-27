@@ -168,6 +168,8 @@ function placeDrone(){
 function attack() {
     var canAttack = checkBoundry('attack');
     if(canAttack){
+        document.getElementById('attackbtn').disabled = true;
+        
         var projectileImgObj = document.getElementById('projectile-img');
         var droneOffsetLeft = document.getElementById('drone-img').style.left;
         var droneOffsetTop = document.getElementById('drone-img').style.top;
@@ -224,6 +226,8 @@ function putDamage(projObj){
     damageImgObj.style.top = initialDroneOffsetTop +  projObj.top - 395  + 'px'; 
     document.getElementById('img-container').appendChild(damageImgObj);
     setTimeout(function(){explosionImgObj.style.display = 'none';}, 200);
+    document.getElementById('attackbtn').disabled = false;
+        
 }
 
 function resetPage(){
