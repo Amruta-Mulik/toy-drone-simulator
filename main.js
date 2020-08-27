@@ -232,14 +232,9 @@ function putDamage(projObj){
     //old code bck----
     var damageImgObj = new Image(50, 50);
     var path = window.location.href;
-    damageImgObj.src =  path.substring(0, path.indexOf('index.html'))+ '/damage.png';
+    damageImgObj.src =  path + '/damage.png';
     damageImgObj.style.position= 'absolute'; 
     
-
-    console.log('initialDroneOffsetLeft ' + initialDroneOffsetLeft);
-    console.log('initialDroneOffsetTop ' + initialDroneOffsetTop);
-    console.log(projObj.left);
-    console.log(projObj.top);
 
     damageImgObj.style.left = initialDroneOffsetLeft  + projObj.left  - 40 +'px';  
     damageImgObj.style.top = initialDroneOffsetTop +  projObj.top - 395  + 'px'; 
