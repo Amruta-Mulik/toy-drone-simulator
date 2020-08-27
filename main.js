@@ -19,7 +19,6 @@ function init() {
    initialDroneOffsetTop = $('#platform-img').offset().top + platformHeight - droneHeight; 
 }
 
-//todo
 function checkBoundry(obj){
     var moveSize = obj == 'attack' ? 2 : 1;
     var canObjMove = true;
@@ -147,11 +146,8 @@ function enableButtons(){
     document.getElementById('resetbtn').style.display = 'block';
 }
 
-//todo
 function placeDrone(){
-
     droneDirection = document.getElementById('direction').value;
-    
     var xpos = document.getElementById('xpos').value;
     var ypos = document.getElementById('ypos').value;
     xpos = (xpos < MIN) ? MIN : (xpos > MAX) ? MAX : xpos;
@@ -169,7 +165,6 @@ function placeDrone(){
 
 }
 
-//todo
 function attack() {
     var canAttack = checkBoundry('attack');
     if(canAttack){
@@ -178,7 +173,6 @@ function attack() {
         var droneOffsetTop = document.getElementById('drone-img').style.top;
 
         projectileImgObj.style.position= 'relative'; 
-        
         projectileImgObj.style.left = parseFloat(droneOffsetLeft) + 5 +'%'; 
         projectileImgObj.style.top = parseFloat(droneOffsetTop) - 9 +'%';
         projectileImgObj.style.display = 'block'; 
@@ -188,8 +182,6 @@ function attack() {
     }else{
         alert('Drone too close to the boundry to attack.');
     }
-
-    
 }
 
 function moveProjectile() {
@@ -207,8 +199,6 @@ function moveProjectile() {
 }
 
 
-
-//todo
 function animateProjectile() {
     var explosionImgObj = document.getElementById('explosion-img');
     var projectileOffsetLeft = document.getElementById('projectile-img').style.left;
@@ -220,27 +210,20 @@ function animateProjectile() {
     
     var projObj = document.getElementById('projectile-img').getBoundingClientRect();
     document.getElementById('projectile-img').style.display = 'none';
- 
     setTimeout(putDamage(projObj),500);
-
-
 }
 
-//todo
 function putDamage(projObj){
     var explosionImgObj = document.getElementById('explosion-img');
-    //old code bck----
     var damageImgObj = new Image(50, 50);
     var path = window.location.href;
+
     damageImgObj.src =  path + '/damage.png';
     damageImgObj.style.position= 'absolute'; 
-    
-
     damageImgObj.style.left = initialDroneOffsetLeft  + projObj.left  - 40 +'px';  
     damageImgObj.style.top = initialDroneOffsetTop +  projObj.top - 395  + 'px'; 
     document.getElementById('img-container').appendChild(damageImgObj);
     setTimeout(function(){explosionImgObj.style.display = 'none';}, 200);
-
 }
 
 function resetPage(){
