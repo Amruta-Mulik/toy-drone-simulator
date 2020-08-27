@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="main.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Toy Drone Simulator</title>
+  </head>
+  <body>
+    <div class=" vertical-center">
+        <div class="container text-center" id="img-container">
+            <div class="ctx" id="ctx">
+                <img src="platform2.jpg" class="platform" id="platform-img" />
+                <img src="drone.png" id="drone-img" class="drone"/>
+                <img src="projectile.png" id="projectile-img" class="projectile"/>
+                <img src="explosion.gif" id="explosion-img" class="explosion"/>
+            </div>
+        </div>
+
+        <div class="text-center buttonContainer">
+          <div class="justify-content-center">
+            
+            <div>
+              <button type="button" class="btn btn-dark" style="margin-left: -3%;" id="movebtn" onclick="move()" disabled>Move</button>
+            </div>
+            <div style="margin: 1%;">
+              <button type="button" class="btn btn-dark" style="float: left;" id="placebtn" data-toggle="modal" data-target="#exampleModal" >Place</button>
+              <button type="button" class="btn btn-dark" style="float: left;display: none;" id="resetbtn" onclick="resetPage()">Restart</button>
+              <button type="button" class="btn btn-dark" style="margin-right: 20%;" id="leftbtn" onclick="rotateLeft()" disabled>&nbsp;Left&nbsp;</button>
+              <button type="button" class="btn btn-dark" id="rightbtn" onclick="rotateRight()" disabled>Right</button>
+              <button type="button" class="btn btn-dark" style="float: right;" id="reportbtn" onclick="report()" disabled>Report</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-dark" style="margin-left: -3%;" id="attackbtn" onclick="attack()" disabled>Attack</button>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Place the drone</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <label for="xpos">X:</label>
+                <input type="number" id="xpos" name="xpos" value="0" min="0" max="9"><br><br>
+                <label for="ypos">Y:</label>
+                <input type="number" id="ypos" name="ypos" value="0" min="0" max="9"><br><br>
+                <label for="direction">Direction:</label>
+                <select name="direction" id="direction">
+                    <option value="north">North</option>
+                    <option value="east">East</option>
+                    <option value="south">South</option>
+                    <option value="west">West</option>
+                </select>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="placeDrone()">Ok</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        </div>
+    </div>
+   
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
+</html>
