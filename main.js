@@ -232,6 +232,7 @@ function putDamage(projObj){
     //old code bck----
     var damageImgObj = new Image(50, 50);
     var path = window.location.href;
+    console.log(path);
     damageImgObj.src =  path + '/damage.png';
     damageImgObj.style.position= 'absolute'; 
     
